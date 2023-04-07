@@ -9,10 +9,18 @@ Scenario Outline: Filter by tags
 	And I select the first question
 	Then the question is tagged with "<tag>"	
 	Examples:
-		| tag |
-		| selenium |
-		| appium | 
-	
+		| tag           |
+		| selenium      |
+		| appium        |
+		# tag vazia
+	    |               |
+	    # tag caracteres especiais ASCII
+	    | !@#$%&*()<>   |
+	    # tag caracteres nao ASCII
+        | ǅΩ٭ぬग        |
+	    # tag com espaço
+	    | software test |
+
 @web @android @ios
 Scenario Outline: Use the search function 
 	Given I am on the homepage 
@@ -20,6 +28,14 @@ Scenario Outline: Use the search function
 	And I select the first question 
 	Then the question is tagged with "<tag>"
 	Examples:
-		| tag |
-		| selenium |
-		| appium |
+		| tag           |
+		| selenium      |
+		| appium        |
+		# tag vazia
+		|               |
+	    # tag caracteres especiais ASCII
+		| !@#$%&*()<>   |
+	    # tag caracteres nao ASCII
+		| ǅΩ٭ぬग        |
+	    # tag com espaço
+		| software test |
